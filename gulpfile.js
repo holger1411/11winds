@@ -1,0 +1,69 @@
+var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+var purgecss = require('gulp-purgecss')
+var cleanCSS = require('gulp-clean-css')
+var plumber = require('gulp-plumber')
+var clean = require('gulp-clean')
+var browserSync = require('browser-sync').create()
+var rename = require('gulp-rename');
+var reload      = browserSync.reload;
+
+gulp.task('purgecss', () => {
+  return gulp
+    .src('dist/css/*.min.css')
+    .pipe(
+      purgecss({
+        content: ['dist/**/*.html'],
+        whitelist: ['show', 'hide', 'fade', 'collapsed', 'collapsing', 'true', 'active', 'preloader', 'status', 'scrolled', 'aos-init', 'aos-animate']
+      })
+    )
+    .pipe(gulp.dest('dist/css'))
+});
+
+gulp.task('minify-css', () => {
+  return gulp
+    .src('dist/css/*.css')
+    .pipe(cleanCSS({
+      compatibility: 'ie8'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('clean-dist', function() {
+  return gulp.src('dist', {
+      read: false
+    })
+    .on('error', function(err) {
+      console.log(err.toString());
+
+      this.emit('end');
+    })
+    .pipe(clean());
+});
+
+gulp.task('clean', function() {
+  return gulp.src('dist/scss', {
+      read: false
+    })
+    .on('error', function(err) {
+      console.log(err.toString());
+
+      this.emit('end');
+    })
+    .pipe(clean());
+});
+
+// Static server
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        watch: false,
+        server: {
+            baseDir: "./dist"
+        }
+    });
+        gulp.watch("dist/*.html").on('change', browserSync.reload);
+        gulp.watch("dist/css/*.css").on('change', browserSync.reload);
+});
