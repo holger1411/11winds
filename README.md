@@ -1,2 +1,2 @@
 # 11winds
- 11winds is a simple boilerplate. It combines the static site generator  [11ty](https://www.11ty.dev/) with the CSS framework [tailwindcss](https://tailwindcss.com/)
+ 11winds is a simple boilerplate. It combines the static site generator <a href="https://www.11ty.dev/" target="_blank">11ty</a> with the CSS framework <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>
