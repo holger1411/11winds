@@ -2,7 +2,7 @@
   "name": "11winds",
   "version": "0.0.1",
   "description": "simple 11ty and TailwindCSS boilerplate",
-  "license": "commercial",
+  "license": "MIT",
   "private": "true",
   "main": "index.html",
   "scripts": {
