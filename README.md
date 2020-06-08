@@ -1,5 +1,4 @@
-# 11winds
-## 11ty + TailwindCSS = 11winds
+# 11winds = 11ty + TailwindCSS
 
 **Demo**: <a href="https://11winds.io" target="_blank">11winds.io</a>
 
@@ -12,3 +11,13 @@ Fire up your terminal, go to the new folder and run:
 npm install
 ```
 Now you are good to go.
+
+## Build it
+To build your static website from the `/src`folder run:
+```
+npm run build
+```
+To run the build task automatically on file changes run:
+```
+npm run watch
+```
