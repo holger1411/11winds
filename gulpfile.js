@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css')
-var plumber = require('gulp-plumber')
 var clean = require('gulp-clean')
 var browserSync = require('browser-sync').create()
 var rename = require('gulp-rename');
