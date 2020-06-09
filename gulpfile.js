@@ -1,24 +1,10 @@
 var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-var purgecss = require('gulp-purgecss')
 var cleanCSS = require('gulp-clean-css')
 var plumber = require('gulp-plumber')
 var clean = require('gulp-clean')
 var browserSync = require('browser-sync').create()
 var rename = require('gulp-rename');
 var reload      = browserSync.reload;
-
-gulp.task('purgecss', () => {
-  return gulp
-    .src('dist/css/*.min.css')
-    .pipe(
-      purgecss({
-        content: ['dist/**/*.html'],
-        whitelist: ['show', 'hide', 'fade', 'collapsed', 'collapsing', 'true', 'active', 'preloader', 'status', 'scrolled', 'aos-init', 'aos-animate']
-      })
-    )
-    .pipe(gulp.dest('dist/css'))
-});
 
 gulp.task('minify-css', () => {
   return gulp

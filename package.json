@@ -6,7 +6,7 @@
   "private": "true",
   "main": "index.html",
   "scripts": {
-    "build": "gulp clean-dist && npx eleventy & npx tailwindcss build src/css/*.css -o dist/css/*.css && gulp minify-css && gulp purgecss",
+    "build": "gulp clean-dist && npx eleventy & npx tailwindcss build src/css/*.css -o dist/css/*.css && gulp minify-css",
     "build-watch": "npm run build && npm run sync",
     "sync": "gulp browser-sync",
     "watch": "watch 'npm run build' ./src & npm run sync"
@@ -17,7 +17,6 @@
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-purgecss": "^1.2.0",
     "gulp-postcss": "8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",

@@ -1,8 +1,9 @@
 // tailwind.config.js
 module.exports = {
-  purge: [
-    './src/**/*.html'
-  ],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.html'],
+  },
   theme: {
     container: {
       center: true,
