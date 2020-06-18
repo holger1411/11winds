@@ -44,11 +44,11 @@ gulp.task('clean', function() {
 // Static server
 gulp.task('browser-sync', function() {
     browserSync.init({
-        watch: false,
+        watch: true,
         server: {
             baseDir: "./dist"
         }
     });
+        gulp.watch("dist/*.css").on('change', browserSync.reload);
         gulp.watch("dist/*.html").on('change', browserSync.reload);
-        gulp.watch("dist/css/*.css").on('change', browserSync.reload);
 });

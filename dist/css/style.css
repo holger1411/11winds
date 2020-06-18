@@ -629,28 +629,34 @@ video {
 
 /*tailwind end components */
 
+.bg-black {
+  --bg-opacity: 1;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, var(--bg-opacity));
+}
+
 .bg-white {
   --bg-opacity: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.bg-gray-200 {
+.bg-gray-900 {
   --bg-opacity: 1;
-  background-color: #edf2f7;
-  background-color: rgba(237, 242, 247, var(--bg-opacity));
+  background-color: #1a202c;
+  background-color: rgba(26, 32, 44, var(--bg-opacity));
 }
 
-.bg-indigo-600 {
+.bg-yellow-500 {
   --bg-opacity: 1;
-  background-color: #5a67d8;
-  background-color: rgba(90, 103, 216, var(--bg-opacity));
+  background-color: #ecc94b;
+  background-color: rgba(236, 201, 75, var(--bg-opacity));
 }
 
-.hover\:bg-indigo-500:hover {
+.hover\:bg-yellow-700:hover {
   --bg-opacity: 1;
-  background-color: #667eea;
-  background-color: rgba(102, 126, 234, var(--bg-opacity));
+  background-color: #b7791f;
+  background-color: rgba(183, 121, 31, var(--bg-opacity));
 }
 
 .border-transparent {
@@ -709,11 +715,6 @@ video {
   line-height: 1.5rem;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -721,6 +722,10 @@ video {
 
 .ml-3 {
   margin-left: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .max-w-screen-xl {
@@ -744,6 +749,11 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .py-20 {
@@ -779,16 +789,10 @@ video {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
-.text-gray-700 {
+.text-gray-500 {
   --text-opacity: 1;
-  color: #4a5568;
-  color: rgba(74, 85, 104, var(--text-opacity));
-}
-
-.text-indigo-600 {
-  --text-opacity: 1;
-  color: #5a67d8;
-  color: rgba(90, 103, 216, var(--text-opacity));
+  color: #a0aec0;
+  color: rgba(160, 174, 192, var(--text-opacity));
 }
 
 .hover\:text-indigo-500:hover {
@@ -799,6 +803,10 @@ video {
 
 .tracking-wider {
   letter-spacing: 0.05em;
+}
+
+.w-4\/6 {
+  width: 66.666667%;
 }
 
 .gap-4 {
