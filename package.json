@@ -6,7 +6,7 @@
   "private": "true",
   "main": "index.html",
   "scripts": {
-    "build": "gulp clean-dist && npx eleventy & npx tailwindcss build src/css/style.css -o dist/css/style.css && gulp minify-css",
+    "build": "gulp clean-dist && npx tailwindcss build src/css/style.css -o dist/css/style.css && npx eleventy && gulp minify-css",
     "build-watch": "npm run build && npm run sync",
     "sync": "gulp browser-sync",
     "watch": "watch 'npm run build' ./src & npm run sync"
