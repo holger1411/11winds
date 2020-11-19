@@ -3,6 +3,9 @@ var cleanCSS = require('gulp-clean-css')
 var clean = require('gulp-clean')
 var browserSync = require('browser-sync').create()
 var rename = require('gulp-rename');
+var purgecss = require('gulp-purgecss');
+var htmlreplace = require('gulp-html-replace');
+var htmlmin = require('gulp-htmlmin');
 var reload      = browserSync.reload;
 
 gulp.task('minify-css', () => {
@@ -51,4 +54,29 @@ gulp.task('browser-sync', function() {
     });
         gulp.watch("dist/*.css").on('change', browserSync.reload);
         gulp.watch("dist/*.html").on('change', browserSync.reload);
+});
+
+// Purging unused CSS
+gulp.task('purgecss', () => {
+    return gulp.src('dist/css/style.min.css')
+        .pipe(purgecss({
+            content: ['dist/**/*.html']
+        }))
+        .pipe(gulp.dest('dist/css'))
+})
+
+gulp.task('inject-min-css', function(done) {
+  gulp.src('./dist/**/*.html')
+    .pipe(htmlreplace({
+        'css': 'css/style.min.css'
+    }))
+    .pipe(gulp.dest('./dist'));
+         done();
+});
+
+// minifies HTML
+gulp.task('minify-html', () => {
+  return gulp.src('dist/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(gulp.dest('dist'));
 });
