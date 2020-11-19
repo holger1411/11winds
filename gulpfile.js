@@ -44,16 +44,13 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-// Static server
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(done) {
     browserSync.init({
-        watch: true,
         server: {
             baseDir: "./dist"
         }
     });
-        gulp.watch("dist/*.css").on('change', browserSync.reload);
-        gulp.watch("dist/*.html").on('change', browserSync.reload);
+gulp.watch("dist/**/*.*").on('change', browserSync.reload);
 });
 
 // Purging unused CSS
